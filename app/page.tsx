@@ -19,16 +19,16 @@ export default function Home() {
       </div>
       <div>
         <ul>
-          <li>
-            <Link href="./name">
+          <Link href="./name">
+            <li>
               <h2>Name Page</h2>
-            </Link>
-          </li>
-          <li>
-            <Link href="./name/address">
+            </li>
+          </Link>
+          <Link href="./name/address">
+            <li>
               <h2>Address Page</h2>
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
     </main>
