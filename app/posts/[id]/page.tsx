@@ -6,6 +6,11 @@ import styles from "./page.module.css";
 
 // const inter = Inter({ subsets: ["latin"] });
 
+export async function generateStaticParams() {
+  const ids: string[] = ["1", "2"];
+  return ids.map((id) => ({ id: id }));
+}
+
 async function getPost(id: string) {
   const post = posts.find((post) => post.id === id);
   return post;
