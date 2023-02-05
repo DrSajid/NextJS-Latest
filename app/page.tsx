@@ -2,8 +2,14 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { posts } from "@/data/post";
 
 const inter = Inter({ subsets: ["latin"] });
+type Post = {
+  id: string;
+  title: string;
+  date: string;
+};
 
 export default function Home() {
   return (
@@ -18,6 +24,15 @@ export default function Home() {
         </div> */}
       </div>
       <div>
+        {posts.map(({ id, title, date }: Post) => (
+          <>
+            <Link href="./posts">{title}</Link>
+            <p>{date}</p>
+            <br />
+          </>
+        ))}
+      </div>
+      <div>
         <ul>
           <Link href="./name">
             <li>
@@ -27,6 +42,11 @@ export default function Home() {
           <Link href="./name/address">
             <li>
               <h2>Address Page</h2>
+            </li>
+          </Link>
+          <Link href="./posts">
+            <li>
+              <h2>Post page</h2>
             </li>
           </Link>
         </ul>
