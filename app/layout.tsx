@@ -1,10 +1,12 @@
-import './globals.css'
+import Image from "next/image";
+import Link from "next/link";
+import "./globals.css";
+import styles from "./layout.module.css";
+import utilStyles from "./utils.module.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const name = "Sajid";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       {/*
@@ -12,7 +14,24 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+
+      <body>
+        <div className={styles.container}>
+          <header className={styles.header}></header>
+          <Link href="/">
+            <Image
+              priority
+              src="/images/profile.jpg"
+              className={utilStyles.borderCircle}
+              height={108}
+              width={108}
+              alt=""
+            />
+          </Link>
+          <h1 className={utilStyles.heading2Xl}>{name}</h1>
+          {children}
+        </div>
+      </body>
     </html>
-  )
+  );
 }
